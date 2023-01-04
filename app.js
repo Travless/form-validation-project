@@ -8,9 +8,8 @@ const username = document.getElementById('username');
 const password = document.getElementById('password');
 const passwordConf = document.getElementById('password-conf');
 
-form.addEventListener('submit', e=> {
+form.addEventListener('submit', e => {
     e.preventDefault();
-
     validateInputs();
 })
 
@@ -32,9 +31,36 @@ const setSuccess = (element) => {
     inputControl.classList.remove('error');
 }
 
+const setRequirements = (element, message) => {
+    const inputControl = element.parentElement;
+    const requirementDisplay = inputControl.querySelector('.requirements');
+
+    requirementDisplay.innerText = message;
+    inputControl.classList.add('req-list');
+}
+
+const requirementsMet = (element) => {
+    const inputControl = element.parentElement;
+    const requirementDisplay = inputControl.querySelector('.requirements');
+
+    requirementDisplay.innerText = '';
+    inputControl.classList.add('req-met');
+    inputControl.classList.remove('req-list');
+}
+
 const isEmailValid = (email) => {
-    const regExpEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regExpEmail.test(String(email).toLowerCase());
+    const regExEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regExEmail.test(String(email).toLowerCase());
+}
+
+const isUsernameValid = () => {
+    const regExUsername  = /[A-Za-z\d@$!%*?&]{5}/;
+    return regExUsername.test(String(username).toLowerCase());
+}
+
+const isPasswordValid = (password) => {
+    const regExPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,20}$/;
+    return regExPassword.test(String(password));
 }
 
 const validateInputs = () => {
@@ -83,18 +109,24 @@ const validateInputs = () => {
 
     if(usernameValue === ''){
         setError(username, 'Username is required')
+    } else if(!isUsernameValid(usernameValue)) {
+        setError(username, 'Please provide a valid username');
     } else {
         setSuccess(username);
     }
 
     if(passwordValue === ''){
         setError(password, 'Password is required')
+    } else if(!isPasswordValid(passwordValue)){
+        setError(password, 'Please provide a valid password')
     } else {
         setSuccess(password);
     }
 
     if(passwordConfValue === ''){
         setError(passwordConf, 'Password confirmation is required')
+    } else if(passwordConfValue != passwordValue){
+        setError(passwordConf, 'Passwords do not match')
     } else {
         setSuccess(passwordConf);
     }
