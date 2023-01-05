@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'destiny';
+    src: url(/fonts/Futura\ Book\ Regular.otf);
+}
+
+@font-face {
+    font-family: 'italic';
+    src: url(/fonts/futur.ttf) format("truetype");
+}
+
+body {
+    margin: 0;
+}
+
+.page-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+}
+
+.form-title,
+.label {
+    font-family: 'destiny';
+}
+
+.form-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 50vw;
+    height: 50vh; */
+    background-color: red;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+#tag-line {
+    text-align: center;
+    font-family: 'italic';
+}
+
+.first-name,
+.last-name,
+.country,
+.zip-code,
+.email,
+.username,
+.password,
+.password-conf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#first-name,
+#last-name,
+#country,
+#zip-code,
+#email,
+#username,
+#password,
+#password-conf {
+    width: 25vw;
+    height: auto;
+}
+
+.submit-cont {
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -5,7 +5,9 @@ const country = document.getElementById('country');
 const zipCode = document.getElementById('zip-code');
 const email = document.getElementById('email');
 const username = document.getElementById('username');
+const usernameReq = document.getElementById('username-req');
 const password = document.getElementById('password');
+const passwordReq = document.getElementById('password-req');
 const passwordConf = document.getElementById('password-conf');
 
 form.addEventListener('submit', e => {
@@ -113,6 +115,7 @@ const validateInputs = () => {
         setError(username, 'Please provide a valid username');
     } else {
         setSuccess(username);
+        usernameReq.hidden = true;
     }
 
     if(passwordValue === ''){
@@ -121,6 +124,7 @@ const validateInputs = () => {
         setError(password, 'Please provide a valid password')
     } else {
         setSuccess(password);
+        passwordReq.hidden = true;
     }
 
     if(passwordConfValue === ''){
@@ -131,3 +135,19 @@ const validateInputs = () => {
         setSuccess(passwordConf);
     }
 };
+
+username.addEventListener('focusin', e => {
+    usernameReq.hidden = false;
+})
+
+username.addEventListener('focusout', e => {
+    usernameReq.hidden = true;
+})
+
+password.addEventListener('focusin', e => {
+    passwordReq.hidden = false;
+});
+
+password.addEventListener('focusout', e=> {
+    passwordReq.hidden = true;
+})
