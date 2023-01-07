@@ -138,11 +138,11 @@ const validateInputs = () => {
 
 username.addEventListener('focusin', e => {
     usernameReq.hidden = false;
-})
+});
 
 username.addEventListener('focusout', e => {
     usernameReq.hidden = true;
-})
+});
 
 password.addEventListener('focusin', e => {
     passwordReq.hidden = false;
@@ -150,4 +150,4 @@ password.addEventListener('focusin', e => {
 
 password.addEventListener('focusout', e=> {
     passwordReq.hidden = true;
-})
+});

@@ -3,9 +3,13 @@
     src: url(/fonts/Futura\ Book\ Regular.otf);
 }
 
-@font-face {
+/* @font-face {
     font-family: 'italic';
     src: url(/fonts/futur.ttf) format("truetype");
+} */
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -19,6 +23,9 @@ body {
     background-color: blue;
     height: 100vh;
     width: 100vw;
+    background-image: url(/imgs/dest2.jpg);
+    background-repeat:no-repeat;
+    background-size: initial;
 }
 
 .form-title,
@@ -30,9 +37,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* width: 50vw;
-    height: 50vh; */
-    background-color: red;
+    background-color: rgba(166, 166, 166, 30%);
+    position: absolute;
+    /* max-width: 100%; */
+    padding: 10px;
 }
 
 .form-header {
@@ -42,9 +50,15 @@ body {
     margin-bottom: 2vh;
 }
 
+.form-title {
+    font-size: 3em;
+    margin-bottom: 1.5vh;
+}
+
 #tag-line {
     text-align: center;
-    font-family: 'italic';
+    font-family: 'destiny';
+    font-size: 1.5em;
 }
 
 .first-name,
@@ -58,8 +72,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
 }
 
 #first-name,
@@ -70,8 +84,34 @@ body {
 #username,
 #password,
 #password-conf {
-    width: 25vw;
-    height: auto;
+    min-width: 20vw;
+    max-width: 30vw;
+    height: 2.5vh;
+    border-radius: 15px;
+    border-style: none;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: #9ab6e3;
+    font-family: 'destiny';
+    font-size: 1rem;
+}
+
+#first-name:focus,
+#last-name:focus,
+#country:focus,
+#zip-code:focus,
+#email:focus,
+#username:focus,
+#password:focus,
+#password-conf:focus {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+.label {
+    font-size: 1.25em;
+    margin-bottom: 0.5vh;
 }
 
 .submit-cont {
@@ -79,4 +119,18 @@ body {
     justify-content: center;
 }
 
+#submit {
+    border-style: none;
+    border-radius: 30px;
+    background-color: #c9714f;
+    width: 150px;
+    height: 70px;
+    font-family: 'destiny';
+    font-size: 1.25rem;
+}
 
+#submit:hover {
+    background-color: #3bdb73;
+    color: black;
+    transition: 0.3s;
+}
